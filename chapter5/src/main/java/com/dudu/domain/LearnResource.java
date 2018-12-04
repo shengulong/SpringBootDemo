@@ -3,7 +3,7 @@ package com.dudu.domain;
 /**
  * Created by tengj on 2017/3/7.
  */
-public class LearnResouce {
+public class LearnResource {
 
     private String author;
     private String title;
@@ -33,7 +33,7 @@ public class LearnResouce {
         this.url = url;
     }
 
-    public LearnResouce(String author, String title, String url) {
+    public LearnResource(String author, String title, String url) {
         this.author = author;
         this.title = title;
         this.url = url;
