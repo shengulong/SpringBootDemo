@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,7 +37,7 @@ public class LearnController {
         return "learn-resource";
     }
 
-    @RequestMapping(value = "/queryLeanList",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
+    @PostMapping(value = "/queryLeanList",produces="application/json;charset=UTF-8")
     @ResponseBody
     public void queryLearnList(HttpServletRequest request , HttpServletResponse response){
         String page = request.getParameter("page"); // 取得当前页数,注意这是jqgrid自身的参数
@@ -62,7 +63,7 @@ public class LearnController {
      * @param request
      * @param response
      */
-    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    @PostMapping(value = "/add")
     public void addLearn(HttpServletRequest request , HttpServletResponse response){
         JSONObject result=new JSONObject();
         String author = request.getParameter("author");
@@ -105,7 +106,7 @@ public class LearnController {
      * @param request
      * @param response
      */
-    @RequestMapping(value = "/update",method = RequestMethod.POST)
+    @PostMapping(value = "/update")
     public void updateLearn(HttpServletRequest request , HttpServletResponse response){
         JSONObject result=new JSONObject();
         String id = request.getParameter("id");
