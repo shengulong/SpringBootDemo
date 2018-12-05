@@ -5,13 +5,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+// import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Created by tengj on 2017/3/13.
  */
 @Configuration
-public class MyWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
+public class MyWebMvcConfigurerAdapter implements WebMvcConfigurer {
 
 
     /**
@@ -24,7 +25,7 @@ public class MyWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
         //registry.addResourceHandler("/my/**").addResourceLocations("classpath:/my/");
         //指向外部目录
         registry.addResourceHandler("/my/**").addResourceLocations("file:E:/my/");
-        super.addResourceHandlers(registry);
+        // super.addResourceHandlers(registry);
     }
 
     /**
@@ -36,7 +37,7 @@ public class MyWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/toLogin").setViewName("login");
-        super.addViewControllers(registry);
+        // super.addViewControllers(registry);
     }
 
     /**
@@ -48,6 +49,6 @@ public class MyWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
         // addPathPatterns 用于添加拦截规则
         // excludePathPatterns 用户排除拦截
         registry.addInterceptor(new MyInterceptor()).addPathPatterns("/**").excludePathPatterns("/toLogin","/login");
-        super.addInterceptors(registry);
+        // super.addInterceptors(registry);
     }
 }

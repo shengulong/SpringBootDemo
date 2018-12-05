@@ -66,4 +66,9 @@ public class LearnController {
         modelAndView.addObject("learnList", learnList);
         return modelAndView;
     }
+
+    @RequestMapping("/test")
+    public String test() {
+        return "test";
+    }
 }
