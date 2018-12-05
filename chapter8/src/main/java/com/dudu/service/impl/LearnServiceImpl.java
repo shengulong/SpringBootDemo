@@ -7,6 +7,7 @@ import com.dudu.tools.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Map;
 @Service
 public class LearnServiceImpl implements LearnService {
 
-    @Autowired
+    @Resource
     LearnDao learnDao;
     @Override
     public int add(LearnResouce learnResouce) {
